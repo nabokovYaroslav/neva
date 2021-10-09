@@ -19,7 +19,7 @@
      * Sections divclass
      * @type {Array}
      */
-    var sections = main.getElementsByTagName("section");
+    var sections = main.children;
 
     /**
      * Full page scroll configurations
@@ -131,6 +131,9 @@
       document.addEventListener("touchstart", this.touchStart, false);
       document.addEventListener("touchend", this.touchEnd, false);
       window.addEventListener("hashchange", this.hashChange, false);
+      // crutch //
+      window.addEventListener("load", this.Load);
+      // end crutch //
 
       /**
        * Enable scroll if decive don't have touch support
@@ -354,6 +357,16 @@
         }
       }
     };
+
+    // crutch //
+
+    this.Load = function () {
+      if (_self.params.onLoad != undefined) {
+        _self.params.onLoad(_self);
+      }
+    };
+
+    // end crutch //
 
     this.registerIeTags = function () {
       document.createElement("section");

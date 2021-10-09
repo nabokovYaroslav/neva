@@ -155,39 +155,6 @@ Version: 1.4.1
 
   /* fancybox */
   $(".fancybox").fancybox(fancyLang);
-
-  $(".slider-items").slick({
-    infinite: true,
-    slidesToShow: 9,
-    slidesToScroll: 1,
-    arrows: true,
-    dots: true,
-    responsive: [
-      {
-        breakpoint: 1440,
-        settings: {
-          slidesToShow: 6,
-          slidesToScroll: 3,
-          infinite: true,
-          dots: true,
-        },
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  });
 });
 
 var wrappers_AniHeader = document.querySelectorAll(".ani-header");
@@ -209,6 +176,65 @@ if (wrappers_AniText) {
   });
 }
 
+var currentImageAnimationSection = null;
+var currentImageAnimationPosition = null;
+var bottleTimeouts = [];
+var slideTimeouts = [];
+
+function setCurrentImageAnimationPosition(position){
+  currentImageAnimationPosition = position
+}
+
+function getCurrentImageAnimationPosition(){
+  return currentImageAnimationPosition
+}
+
+function setCurrentImageAnimationSection(section){
+  currentImageAnimationSection = section
+}
+
+function getCurrentImageAnimationSection(){
+  return currentImageAnimationSection
+}
+
+function clearCurrentImageAnimationSection(){
+  switch(getCurrentImageAnimationPosition()){
+    case 0:{
+      getCurrentImageAnimationSection().querySelector('img').classList.remove('aos-animate');
+      break;
+    }
+    case 1:{
+      getCurrentImageAnimationSection().querySelector('.image-border').classList.remove('aos-animate');
+      break;
+    }
+    case 2:{
+      bottleTimeouts.forEach(timeout=>{
+        clearTimeout(timeout)
+      })
+      bottleTimeouts = []
+      getCurrentImageAnimationSection().querySelectorAll('.collection-item-img').forEach(image=>{
+        image.classList.remove('aos-animate')
+      });
+      break;
+    }
+    case 3:{
+      getCurrentImageAnimationSection().querySelectorAll('.production-item-imgages').forEach(image=>{
+        image.classList.remove('aos-animate')
+      });
+      break;
+    }
+    case 4:{
+      slideTimeouts.forEach(timeout=>{
+        clearTimeout(timeout)
+      })
+      slideTimeouts = []
+      getCurrentImageAnimationSection().querySelectorAll('.slider-item').forEach(slide=>{
+        slide.classList.remove('aos-animate')
+      })
+    }
+  }
+}
+
 new fullScroll({
   mainElement: "main",
   menuElement: ".main-nav ul",
@@ -219,7 +245,61 @@ new fullScroll({
   onChangeCurrentPosition: function (e) {
     let elements = e.defaults.container.children;
     let currentSection = elements.item(e.defaults.currentPosition);
-
+    if(getCurrentImageAnimationSection() != null){
+      clearCurrentImageAnimationSection()
+    }
+    setTimeout(()=>{
+      if(e.defaults.currentPosition == 0){
+        setCurrentImageAnimationSection(currentSection);
+        setCurrentImageAnimationPosition(e.defaults.currentPosition)
+        currentSection.querySelector('img').classList.add('aos-animate')
+      } else if(e.defaults.currentPosition == 1){
+        setCurrentImageAnimationSection(currentSection);
+        setCurrentImageAnimationPosition(e.defaults.currentPosition)
+        currentSection.querySelector('.image-border').classList.add('aos-animate')
+      } else if(e.defaults.currentPosition == 2){
+        setCurrentImageAnimationSection(currentSection);
+        setCurrentImageAnimationPosition(e.defaults.currentPosition)
+        currentSection.querySelectorAll('.collection-item-images').forEach(images=>{
+          let time = 0
+          for(let i = 2; i>=0; i--){
+            let timeout = setTimeout(()=>{
+              images.querySelectorAll('.collection-item-img')[i].classList.add('aos-animate')
+            }, time)
+            bottleTimeouts.push(timeout)
+            time+=700
+          }
+        })
+      } else if(e.defaults.currentPosition == 3){
+        setCurrentImageAnimationSection(currentSection);
+        setCurrentImageAnimationPosition(e.defaults.currentPosition)
+        currentSection.querySelectorAll('.production-item-imgages').forEach(image=>{
+          image.classList.add('aos-animate')
+        })
+      } else if(e.defaults.currentPosition == 4){
+        setCurrentImageAnimationSection(currentSection);
+        setCurrentImageAnimationPosition(e.defaults.currentPosition)
+        let time = 0
+        currentSection.querySelectorAll('.slider-item').forEach(slide=>{
+          let timeout = setTimeout(()=>{
+            slide.classList.add('aos-animate');
+          }, time)
+          slideTimeouts.push(timeout)
+          time+=100
+        })
+      }
+    }, 700)
+    if(e.defaults.currentPosition != 5){
+      anime.timeline({ loop: false }).add({
+        targets: currentSection.querySelectorAll(".ani-text .letter"),
+        translateX: [40, 0],
+        translateZ: 0,
+        opacity: [0, 1],
+        easing: "easeOutExpo",
+        duration: 260,
+        delay: (el, i) => 55 + 3 * i,
+      });
+    }
     anime.timeline({ loop: false }).add({
       targets: currentSection.querySelectorAll(".ani-header .letter"),
       translateX: [40, 0],
@@ -229,27 +309,250 @@ new fullScroll({
       duration: 1300,
       delay: (el, i) => 550 + 30 * i,
     });
-
-    anime.timeline({ loop: false }).add({
-      targets: currentSection.querySelectorAll(".ani-text .letter"),
-      translateX: [40, 0],
-      translateZ: 0,
-      opacity: [0, 1],
-      easing: "easeOutExpo",
-      duration: 260,
-      delay: (el, i) => 55 + 3 * i,
-    });
   },
+  onLoad: function(e){
+    let elements = e.defaults.container.children;
+    let currentSection = elements.item(e.defaults.currentPosition);
+    if(e.defaults.currentPosition == 0){
+      setCurrentImageAnimationSection(currentSection);
+      setCurrentImageAnimationPosition(e.defaults.currentPosition)
+      currentSection.querySelector('img').classList.add('aos-animate')
+    } else if(e.defaults.currentPosition == 1){
+      setCurrentImageAnimationSection(currentSection);
+      setCurrentImageAnimationPosition(e.defaults.currentPosition)
+      currentSection.querySelector('.image-border').classList.add('aos-animate')
+    } else if(e.defaults.currentPosition == 2){
+      setCurrentImageAnimationSection(currentSection);
+      setCurrentImageAnimationPosition(e.defaults.currentPosition)
+      currentSection.querySelectorAll('.collection-item-images').forEach(images=>{
+        let time = 0
+        for(let i = 2; i>=0; i--){
+          let timeout = setTimeout(()=>{
+            images.querySelectorAll('.collection-item-img')[i].classList.add('aos-animate')
+          }, time)
+          bottleTimeouts.push(timeout)
+          time+=700
+        }
+      })
+    } else if(e.defaults.currentPosition == 3){
+      setCurrentImageAnimationSection(currentSection);
+      setCurrentImageAnimationPosition(e.defaults.currentPosition)
+      currentSection.querySelectorAll('.production-item-imgages').forEach(image=>{
+        image.classList.add('aos-animate')
+      })
+    }
+  }
 });
+
+
 
 // carousel
 
-$(".owl-carousel").owlCarousel({
-  loop: false,
+$(".owl-carousel.collection-slider").owlCarousel({
+  loop: true,
   margin: 10,
+  nav: false,
+  dots: false,
+  autoplay: false,
+  autoplayTimeout: 5000,
   responsive: {
     0: {
       items: 1,
     },
   },
 });
+//custom nav //
+
+createNavForSlider(".owl-carousel.collection-slider");
+
+// end custom nav //
+
+$(".owl-carousel.slider-items").owlCarousel({
+  loop: true,
+  margin: 0,
+  nav: false,
+  dots: false,
+  responsive: {
+    0: {
+      items: 2,
+    },
+    576:{
+      items: 3,
+    },
+    768:{
+      items: 4,
+    },
+    992:{
+      items: 5,
+    },
+    1200:{
+      items: 6,
+    }
+  },
+})
+
+createNavForSlider(".owl-carousel.slider-items");
+
+$(".owl-carousel.galery-collection").owlCarousel({
+  loop: true,
+  margin: 10,
+  dots: false,
+  responsive: {
+    0: {
+      items: 1,
+    },
+    576: {
+      items: 2,
+    },
+    768: {
+      items: 1,
+    },
+    992: {
+      items: 2,
+    }
+  },
+})
+
+createNavForSlider(".owl-carousel.galery-collection");
+
+function setAnimationType(){
+  var currentSize = document.body.clientWidth;
+  var type;
+  if(currentSize > 0 && currentSize < 576){
+    type = 'fade-up'
+  } else if( currentSize >=576 && currentSize < 768){
+    type = 'fade-left'
+  } else if(currentSize >= 768 && currentSize < 992){
+    type = 'fade-up'
+  } else {
+    type = 'fade-left'
+  }
+  document.querySelector('#main>section:nth-child(2) .image-border').setAttribute("data-aos", type)
+}
+
+function createNavForSlider(selector){
+  var nav = document.createElement("div")
+  nav.classList.add('nav')
+  var prevButton = document.createElement("button");
+  prevButton.classList.add('prev');
+  prevButton.addEventListener('click', ()=>{
+    $(selector).trigger('prev.owl.carousel');
+  })
+  var nextButton = document.createElement("button");
+  nextButton.classList.add('next');
+  nextButton.addEventListener('click', ()=>{
+    $(selector).trigger('next.owl.carousel');
+  })
+  prevButton.innerHTML = '<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve"><g><g><polygon points="207.093,30.187 176.907,0 48.907,128 176.907,256 207.093,225.813 109.28,128"/></g></g></svg>';
+  nextButton.innerHTML = '<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve"><g><g><polygon points="79.093,0 48.907,30.187 146.72,128 48.907,225.813 79.093,256 207.093,128"/></g></g></svg>';
+  nav.appendChild(prevButton)
+  nav.appendChild(nextButton)
+
+  document.querySelector(selector).appendChild(nav);
+}
+
+setAnimationType()
+
+window.addEventListener('resize', setAnimationType)
+
+var productionItems = document.querySelectorAll(".production-item-imgages");
+productionItems[0].setAttribute('data-aos', 'fade-left')
+productionItems[1].setAttribute('data-aos', 'fade-right')
+
+document.querySelector('.burger').addEventListener('click', ()=>{
+  document.querySelector('#scrollMenu').classList.add("active");
+  document.querySelector('.overlay').classList.add('active');
+})
+
+document.querySelector('.overlay').addEventListener('click', ()=>{
+  document.querySelector('#scrollMenu').classList.remove("active");
+  document.querySelector('.overlay').classList.remove('active');
+})
+
+document.querySelectorAll('#scrollMenu li a').forEach(link=>{
+  link.addEventListener('click', ()=>{
+    document.querySelector('#scrollMenu').classList.remove("active");
+    document.querySelector('.overlay').classList.remove('active');
+  })
+})
+
+document.querySelector('.menu-logo').addEventListener('click', ()=>{
+  document.querySelector('#scrollMenu').classList.remove("active");
+  document.querySelector('.overlay').classList.remove('active');
+})
+
+window.addEventListener('resize', onResize)
+window.onload = () =>{
+  onResize()
+}
+
+var productionItems = document.querySelectorAll('.production-item');
+var activeProductionItemIndex = 0
+productionItems[activeProductionItemIndex].classList.add('active');
+
+for(let i = 0; i< productionItems.length; i++){
+  productionItems[i].addEventListener('transitionend', (e)=>{
+    if(e.target != productionItems[i] || e.target.classList.contains('active')) return
+    console.log(1)
+    if(getComputedStyle(e.target).getPropertyValue('opacity') == '0'){
+      productionItems[i].classList.add('hidden')
+    }
+    if(activeProductionItemIndex<productionItems.length-1){
+      activeProductionItemIndex++;
+    }else{
+      activeProductionItemIndex = 0;
+    }
+    productionItems[activeProductionItemIndex].classList.remove('hidden')
+    setTimeout(()=>{
+      productionItems[activeProductionItemIndex].classList.add('active');
+      moreBtn.disabled = false;
+      onResize()
+    }, 0)
+  })
+  if(i==0) continue;
+  productionItems[i].classList.add('hidden');
+}
+
+var moreBtn = document.querySelector('.more');
+moreBtn.addEventListener('click', ()=>{
+  productionItems[activeProductionItemIndex].classList.remove('active');
+  moreBtn.disabled = "true"
+})
+
+function onResize(){
+  document.querySelectorAll('.collection-item').forEach(item=>{
+    item.querySelector('.text').style.height = item.querySelector('.collection-item-images').clientHeight + 'px';
+  })
+  var currentSize = document.body.clientWidth
+  if(currentSize >= 992){
+    productionItems.forEach(item=>{
+      var images = item.querySelector('.production-item-imgages')
+      var text = item.querySelector('.production-item-text')
+      text.style.maxHeight = images.clientHeight + 'px';
+      text.style.maxWidth = 'none';
+    })
+  }else{
+    productionItems.forEach(item=>{
+      var images = item.querySelectorAll('.production-item-imgages .production-item-img img')
+      var width = 0;
+      images.forEach(image=>{
+        width+=image.clientWidth
+      })
+      var text = item.querySelector('.production-item-text')
+      var padding = 50;
+      var clientHeight = document.body.clientHeight;
+      var titleHeight = document.querySelector('#main>section:nth-child(4) h1').clientHeight + parseFloat(getComputedStyle(document.querySelector('#main>section:nth-child(4) h1')).getPropertyValue('margin-bottom'));
+      var buttonHeight = document.querySelector('#main>section:nth-child(4) button').clientHeight + parseFloat(getComputedStyle(document.querySelector('#main>section:nth-child(4) button')).getPropertyValue('margin-top'));
+      var imagesHeight = item.querySelector('.production-item-imgages').clientHeight
+      text.style.maxWidth = width + 'px';
+      text.style.maxHeight = clientHeight - padding - titleHeight - buttonHeight - imagesHeight +'px';
+    })
+  }
+}
+
+var image = document.querySelector('#main>section img')
+
+image.addEventListener('click', ()=>{
+  document.querySelector('#main>section .row .row>div:last-child').classList.toggle('active')
+  document.querySelector('#main>section .row .row>div:first-child').classList.toggle('hidden')
+})

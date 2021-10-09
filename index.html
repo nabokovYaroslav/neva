@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 
-<head>
+<head style="overflow: hidden;">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -33,27 +33,31 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=PT+Serif+Caption:ital@1&family=Philosopher:wght@400;700&display=swap" rel="stylesheet"> 
-  <link rel="stylesheet" type="text/css" href="./css/normalize.css"/>
-  <link rel="stylesheet" href="./css/bootstrap-parody.css"/>
-  <link rel="stylesheet" href="./css/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="./template/css/normalize.css"/>
+  <link rel="stylesheet" href="./template/css/bootstrap-parody.css"/>
+  <link rel="stylesheet" href="./template/css/slick.css"/>
   <!--owl-carousel connection-->
   <link rel="stylesheet" href="./template/js/carousel/owl.carousel.min.css">
   <link rel="stylesheet" href="./template/js/carousel/owl.theme.default.min.css">
+  <link rel="stylesheet" href="./template/css/aos.css">
   <!--end-->
-  <link rel="stylesheet" href="./css/style.css"/>
+  <link rel="stylesheet" href="./template/css/style.css"/>
 </head>
 
-<body>
-<main class="main page-inner" style="background: url(./assets/images/piter2.png), linear-gradient(0deg, rgba(51, 51, 51, 0.8), rgba(51, 51, 51, 0.8)), url(./template/image/bg.png);">
+<body style="overflow: hidden;">
+<main class="main page-inner" style="background: linear-gradient(0deg, rgba(51, 51, 51, 0.8), rgba(51, 51, 51, 0.8)), url(./template/image/bg.png);">
 	<div id="scrollMenu">
 		<aside class="page-aside">
-			<img class="page-aside-logo-inner" src="./assets/images/logotype.svg" width="213" heiht="72" alt="Vodka Neva">
+			<a class="menu-logo" href="#novyj-flagman"><img class="page-aside-logo-inner" src="assets/images/logotype.svg" width="213" heiht="72" alt="Vodka Neva"></a>
 			<nav class="main-nav">
-				<ul class="main-nav__items"><li class="main-nav__item"><a class="main-nav__item-link" href="osnovnaya#novyj-flagman">Новый Флагман</a></li><li class="main-nav__item"><a class="main-nav__item-link" href="osnovnaya#legendy-i-tradicii">Легенды и традиции</a></li><li class="main-nav__item"><a class="main-nav__item-link" href="osnovnaya#kollekciya-nevy">Коллекция Невы</a></li><li class="main-nav__item"><a class="main-nav__item-link" href="osnovnaya#proizvodstvo-i-kachestvo">Производство и качество</a></li><li class="main-nav__item"><a class="main-nav__item-link" href="osnovnaya#koktejlnaya-karta">Коктейльная карта</a></li><li class="main-nav__item"><a class="main-nav__item-link" href="osnovnaya#galereya">Галерея мероприятий</a></li><li class="main-nav__item"><a class="main-nav__item-link" href="osnovnaya#contacts">Контакты</a></li></ul>
+				<ul class="main-nav__items"><li class="main-nav__item"><a class="main-nav__item-link" href="#novyj-flagman">Новый Флагман</a></li><li class="main-nav__item"><a class="main-nav__item-link" href="#legendy-i-tradicii">Легенды и традиции</a></li><li class="main-nav__item"><a class="main-nav__item-link" href="#kollekciya-nevy">Коллекция Невы</a></li><li class="main-nav__item"><a class="main-nav__item-link" href="#proizvodstvo-i-kachestvo">Производство и качество</a></li><li class="main-nav__item"><a class="main-nav__item-link" href="#koktejlnaya-karta">Коктейльная карта</a></li><li class="main-nav__item"><a class="main-nav__item-link" href="#galereya">Галерея мероприятий</a></li><li class="main-nav__item"><a class="main-nav__item-link" href="#contacts">Контакты</a></li></ul>
 			</nav>
 		</aside>
 	</div>
-
+  <div class="burger">
+    <svg viewBox="0 -53 384 384"xmlns="http://www.w3.org/2000/svg"><path d="m368 154.667969h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0"/><path d="m368 32h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0"/><path d="m368 277.332031h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0"/></svg>
+  </div>
+  <div class="overlay"></div>
 	<div id="main" class="scroll-container">
     <section class="section" style='background-color: rgb(220 51 173 / 20%);'>
       <div class="container-fluid height-100">
@@ -74,30 +78,32 @@
                 </section>
               </div>
               <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                <img class="page-content-home img-fluid" src="./assets/images/bottle.png" alt="">
+                <img class="page-content-home img-fluid aos-init" src="./assets/images/bottle.png" alt="" data-aos="fade-left">
               </div>	
             </div>
           </div>
         </div>
       </div>
     </section>
-    <section class="legends" style='background-color: rgb(85 85 148 / 20%);'>
+    <section style='background-color: rgb(85 85 148 / 20%);'>
       <div class="container-fluid height-100">
         <div class="row height-100">
           <div class="col-lg-3 col-md-4 col-sm-0 col-xs-0"></div>
-          <div class="col-lg-9 col-md-8 col-sm-12 col-xs-12 legend">
-            <div class="row height-100" style="align-items: center;">
+          <div class="col-lg-9 col-md-8 col-sm-12 col-xs-12">
+            <div class="row height-100">
               <h1 class="page-title-inner ani-header">Легенды и традиции</h1>
-              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                <div class="page-content-inner">
-                  <div class="ani-text scroll-text">Первые упоминания о водке Нева были получены еще с начала основания города Санкт-Петербург. Блюда для императорского стола готовил кухмистр Иоганн Фельтен, голландец по происхождению, которого Петр I переманил у датского посланника. Именно он познакомил русского царя с изысканным напитком, который подавал к столу. Доподлинно известно, перед едой император выпивал чарку анисовой водки. Однако больше спиртного не употреблял, запивая еду холодным квасом. Однажды во время торжества по случаю дня рождения Петр I обратился к повару: &laquo;Твой напиток должен называться как моя великая река&raquo;. Так водка получила свое заслуженное название. Но после кончины государя данный напиток затерялся в частных коллекциях.Так совпало, что знаменитый архитектор Петербурга, автор ограды Летнего сада Ю.М.Фельтен приходился сыном главному повару императора Петра I оберкухенмейстеру Иоганну Фельтену. На какое- то время он возродил напиток и угощал друзей на своих банкетах, рассказывая историю создания Невы. Водка оставалась в погребах до определенного времени. Особый рецепт хранился в семейных бумагах и, спустя столетия, снова возрожден.</div>	
+              <div class="history">
+                <div class="col-lg-6 col-md-12 col-sm-6 col-xs-12">
+                  <div class="page-content-inner">
+                    <div class="ani-text scroll-text">Первые упоминания о водке Нева были получены еще с начала основания города Санкт-Петербург. Блюда для императорского стола готовил кухмистр Иоганн Фельтен, голландец по происхождению, которого Петр I переманил у датского посланника. Именно он познакомил русского царя с изысканным напитком, который подавал к столу. Доподлинно известно, перед едой император выпивал чарку анисовой водки. Однако больше спиртного не употреблял, запивая еду холодным квасом. Однажды во время торжества по случаю дня рождения Петр I обратился к повару: &laquo;Твой напиток должен называться как моя великая река&raquo;. Так водка получила свое заслуженное название. Но после кончины государя данный напиток затерялся в частных коллекциях.Так совпало, что знаменитый архитектор Петербурга, автор ограды Летнего сада Ю.М.Фельтен приходился сыном главному повару императора Петра I оберкухенмейстеру Иоганну Фельтену. На какое- то время он возродил напиток и угощал друзей на своих банкетах, рассказывая историю создания Невы. Водка оставалась в погребах до определенного времени. Особый рецепт хранился в семейных бумагах и, спустя столетия, снова возрожден.</div>	
+                  </div>	
+                </div>
+                <div class="col-lg-6 col-md-12 col-sm-6 col-xs-12">
+                  <div class="image-border aos-init">
+                    <img class="img-fluid" src="./assets/images/legend.png" alt="">
+                  </div>						
                 </div>	
-              </div>
-              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                <div class="image-border">
-                  <img class="img-fluid" src="./assets/images/legend.png" alt="">
-                </div>						
-              </div>					
+              </div>				
             </div>
           </div>
         </div>
@@ -109,18 +115,18 @@
           <div class="col-lg-3 col-md-4 col-sm-0 col-xs-0"></div>
           <div class="col-lg-9 col-md-8 col-sm-12 col-xs-12">
             <h1 class="page-title-inner ani-header">Коллекция Невы</h1>
-            <div class="owl-carousel height-100">
+            <div class="owl-carousel collection-slider">
               <div class="collection-item">
                 <div class="collection-item-images">
-                  <div class="collection-item-img">
+                  <div class="collection-item-img aos-init" data-aos="fade-right">
                     <img src="./assets/cache/images/vodka-bottle-115x534-6e2.png" alt="1000 ml">		
                     <div class="ml">1000 ml</div>
                   </div>
-                  <div class="collection-item-img">
+                  <div class="collection-item-img aos-init" data-aos="fade-right">
                     <img src="./assets/cache/images/vodka-bottle-101x467-1be.png" alt="700 ml">		
                     <div class="ml">700 ml</div>
                   </div>
-                  <div class="collection-item-img">
+                  <div class="collection-item-img aos-init" data-aos="fade-right">
                     <img src="./assets/cache/images/vodka-bottle-87x399-9a8.png" alt="500 ml">		
                     <div class="ml">500 ml</div>
                   </div>			
@@ -156,32 +162,29 @@
       </div> 
     </section>
   <section style='background-color: rgb(220 51 173 / 20%);'>
-    <div class="container-fluid">
-      <div class="row">
+    <div class="container-fluid height-100">
+      <div class="row height-100">
         <div class="col-lg-3 col-md-4 col-sm-0 col-xs-0"></div>
         <div class="col-lg-9 col-md-8 col-sm-12 col-xs-12">
           <h1 class="page-title-inner ani-header">Производство и качество</h1>
-            <div class="production-item">
-              <div class="row" style="align-items: center;">
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                  <div class="production-item-text scroll-text ani-text"><p>Благодаря современному непрерывному процессу дистилляции мы получаем исключительно чистый спирт, сохраняя в нем ароматные вкусовые оттенки русской водки, которые так дороги знатокам этого напитка.<br />Мы производим водку Neva небольшими партиями, т.к. используем продукцию только высшего качества и внимательно относимся к подбору компонентов: умягченная питьевая вода, солодовый спирт &ldquo;ЛЮКС&rdquo;, мягкие и текстурные фруктовые настои.<br />Объем 700 ml, 40% alc, двойная совершенная фильтрация, лимитированное производство. Благородный классический вкус с богатыми тонами ржаного спирта.&nbsp;<br />Состав: вода питьевая исправленная, спирт этиловый ректификованный &ldquo;ЛЮКС из пищевого сырья.</p></div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                  <div class="production-item-imgages">
-                    <div class="production-item-img">
-                      <img src="./assets/images/vodkaizmagazina.jpg" alt="" class="img-fluid"> 
-                    </div>
+          <div class="production-item">
+            <div class="row">
+              <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                <div class="production-item-imgages aos-init">
+                  <div class="production-item-img">
+                    <img src="./assets/images/vodkaizmagazina.jpg" alt="" class="img-fluid"> 
                   </div>
                 </div>
-              </div>  
-            </div>
-          <div class="production-item">
-            <div class="row" style="align-items: center; flex-direction: row-reverse;">
-              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                <div class="production-item-text scroll-text ani-text"><p>Ликероводочный завод ООО &laquo;Опытный завод &laquo;НИВА&raquo; основан в 1990 г.<br />Он является поставщиком продукции во все регионы России и более чем в 40 стран мира.<br />Завод находится в портовом городе Санкт-Петербурге.<br />Компания НИВА располагает всеми необходимыми лицензиями и сертификатами. Продукция соответствует всем требованиям российского законодательства, а также требованиям международных стандартов ISO 22000 в области безопасности продукции.<br />Именно здесь изготовляется наша водочка с соблюдением высоких стандартов качества на всех этапах производства.</p></div>
               </div>
-              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                <div class="production-item-imgages" style="display: flex;">
+              <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                <div class="production-item-text scroll-text ani-text"><p>Благодаря современному непрерывному процессу дистилляции мы получаем исключительно чистый спирт, сохраняя в нем ароматные вкусовые оттенки русской водки, которые так дороги знатокам этого напитка.<br />Мы производим водку Neva небольшими партиями, т.к. используем продукцию только высшего качества и внимательно относимся к подбору компонентов: умягченная питьевая вода, солодовый спирт &ldquo;ЛЮКС&rdquo;, мягкие и текстурные фруктовые настои.<br />Объем 700 ml, 40% alc, двойная совершенная фильтрация, лимитированное производство. Благородный классический вкус с богатыми тонами ржаного спирта.&nbsp;<br />Состав: вода питьевая исправленная, спирт этиловый ректификованный &ldquo;ЛЮКС из пищевого сырья.</p></div>
+              </div>
+            </div>  
+          </div>
+          <div class="production-item">
+            <div class="row">
+              <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                <div class="production-item-imgages aos-init">
                   <div class="production-item-img">
                     <img src="./assets/images/vodkaizmagazina2.jpg" alt="" class="img-fluid"> 
                   </div>
@@ -190,148 +193,172 @@
                   </div>
                 </div>
               </div>
+              <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                <div class="production-item-text scroll-text ani-text"><p>Ликероводочный завод ООО &laquo;Опытный завод &laquo;НИВА&raquo; основан в 1990 г.<br />Он является поставщиком продукции во все регионы России и более чем в 40 стран мира.<br />Завод находится в портовом городе Санкт-Петербурге.<br />Компания НИВА располагает всеми необходимыми лицензиями и сертификатами. Продукция соответствует всем требованиям российского законодательства, а также требованиям международных стандартов ISO 22000 в области безопасности продукции.<br />Именно здесь изготовляется наша водочка с соблюдением высоких стандартов качества на всех этапах производства.</p></div>
+              </div>
             </div>
-          </div>						
+          </div>
+          <button class="more">Читать далее</button>				
         </div>
       </div>
     </div>
   </section>
-  <section style='background-color: rgb(85 85 148 / 20%);'><div class="row"><div class="col-lg-3"></div><div class="col-lg-9"><h1 class="page-title-inner ani-header">Коктейльная карта</h1>		
-<div class="slider-items">
-	<div class="slider-item">
-	<div class="slider-title">Олд-фэшн (Old Fasioned)</div>
-	<div class="slider-text">Для напитков в чистом виде со льдом</div>
-	<div class="slider-item-bottom">
-		<img src="./assets/images/coctails/01.png" alt="" class="slider-img">
-		<div class="slider-ml">220-300 мл</div>
-	</div>		
-</div><div class="slider-item">
-	<div class="slider-title">Маргарита (Margarita Glass)</div>
-	<div class="slider-text">Для коктейля "Маргарита" и замороженных коктелей</div>
-	<div class="slider-item-bottom">
-		<img src="./assets/images/coctails/02.png" alt="" class="slider-img">
-		<div class="slider-ml">200-350 мл</div>
-	</div>		
-</div><div class="slider-item">
-	<div class="slider-title">Хайболл (Highball или Long Drink)</div>
-	<div class="slider-text">Для "долгих" коктелей, которые пьют не спеша, а также соков и воды</div>
-	<div class="slider-item-bottom">
-		<img src="./assets/images/coctails/03.png" alt="" class="slider-img">
-		<div class="slider-ml">106-240 мл</div>
-	</div>		
-</div><div class="slider-item">
-	<div class="slider-title">Олд-фэшн (Old Fasioned)</div>
-	<div class="slider-text">Для напитков в чистом виде со льдом</div>
-	<div class="slider-item-bottom">
-		<img src="./assets/images/coctails/01.png" alt="" class="slider-img">
-		<div class="slider-ml">220-300 мл</div>
-	</div>		
-</div><div class="slider-item">
-	<div class="slider-title">Маргарита (Margarita Glass)</div>
-	<div class="slider-text">Для коктейля "Маргарита" и замороженных коктелей</div>
-	<div class="slider-item-bottom">
-		<img src="./assets/images/coctails/02.png" alt="" class="slider-img">
-		<div class="slider-ml">200-350 мл</div>
-	</div>		
-</div><div class="slider-item">
-	<div class="slider-title">Хайболл (Highball или Long Drink)</div>
-	<div class="slider-text">Для "долгих" коктелей, которые пьют не спеша, а также соков и воды</div>
-	<div class="slider-item-bottom">
-		<img src="./assets/images/coctails/03.png" alt="" class="slider-img">
-		<div class="slider-ml">106-240 мл</div>
-	</div>		
-</div><div class="slider-item">
-	<div class="slider-title">Олд-фэшн (Old Fasioned)</div>
-	<div class="slider-text">Для напитков в чистом виде со льдом</div>
-	<div class="slider-item-bottom">
-		<img src="./assets/images/coctails/01.png" alt="" class="slider-img">
-		<div class="slider-ml">220-300 мл</div>
-	</div>		
-</div><div class="slider-item">
-	<div class="slider-title">Маргарита (Margarita Glass)</div>
-	<div class="slider-text">Для коктейля "Маргарита" и замороженных коктелей</div>
-	<div class="slider-item-bottom">
-		<img src="./assets/images/coctails/02.png" alt="" class="slider-img">
-		<div class="slider-ml">200-350 мл</div>
-	</div>		
-</div><div class="slider-item">
-	<div class="slider-title">Хайболл (Highball или Long Drink)</div>
-	<div class="slider-text">Для "долгих" коктелей, которые пьют не спеша, а также соков и воды</div>
-	<div class="slider-item-bottom">
-		<img src="./assets/images/coctails/03.png" alt="" class="slider-img">
-		<div class="slider-ml">106-240 мл</div>
-	</div>		
-</div><div class="slider-item">
-	<div class="slider-title">Олд-фэшн (Old Fasioned)</div>
-	<div class="slider-text">Для напитков в чистом виде со льдом</div>
-	<div class="slider-item-bottom">
-		<img src="./assets/images/coctails/01.png" alt="" class="slider-img">
-		<div class="slider-ml">220-300 мл</div>
-	</div>		
-</div>						
-</div></div></div></section><section style='background-color: rgb(89 146 173 / 20%);'><div class="row"><div class="col-lg-3"></div><div class="col-lg-9"><div class="row">
-	<h1 class="page-title-inner ani-header">Галерея мероприятий</h1>		<div class="col-lg-4 gallery-item-col">
-	<div class="gallery-item" style="background-image:url(./assets/cache/images/events/1-480x460-f3a.jpg)">
-		<div class="gallery-item-title ani-text">Фестиваль первый</div>
-		<div class="gallery-item-text ani-text"><p>Повседневная практика показывает, что постоянное информационно-пропагандистское обеспечение нашей деятельности требуют определения и уточнения дальнейших направлений развития.</p></div>
-	</div>
-</div><div class="col-lg-4 gallery-item-col">
-	<div class="gallery-item" style="background-image:url(./assets/cache/images/events/2-480x460-f3a.jpg)">
-		<div class="gallery-item-title ani-text">Фестиваль второй</div>
-		<div class="gallery-item-text ani-text"><p>С другой стороны укрепление и развитие структуры играет важную роль в формировании новых предложений. Идейные соображения высшего порядка, а также реализация намеченных плановых заданий в значительной степени обуславливает создание форм развития</p></div>
-	</div>
-</div><div class="col-lg-4 gallery-item-col">
-	<div class="gallery-item" style="background-image:url(./assets/cache/images/events/3-480x460-f3a.jpg)">
-		<div class="gallery-item-title ani-text">Фестиваль третий</div>
-		<div class="gallery-item-text ani-text"><p>Товарищи! дальнейшее развитие различных форм деятельности играет важную роль в формировании позиций, занимаемых участниками в отношении поставленных задач. Идейные соображения высшего порядка, а также реализация намеченных плановых заданий представляет собой интересный эксперимент</p></div>
-	</div>
-</div><div class="col-lg-4 gallery-item-col">
-	<div class="gallery-item" style="background-image:url(./assets/cache/images/events/4-480x460-f3a.jpg)">
-		<div class="gallery-item-title ani-text">Фестиваль четвертый</div>
-		<div class="gallery-item-text ani-text"><p>Повседневная практика показывает, что постоянное информационно-пропагандистское обеспечение нашей деятельности требуют определения и уточнения дальнейших направлений развития.</p></div>
-	</div>
-</div><div class="col-lg-4 gallery-item-col">
-	<div class="gallery-item" style="background-image:url(./assets/cache/images/events/5-480x460-f3a.jpg)">
-		<div class="gallery-item-title ani-text">Фестиваль пятый</div>
-		<div class="gallery-item-text ani-text"><p>С другой стороны укрепление и развитие структуры играет важную роль в формировании новых предложений. Идейные соображения высшего порядка, а также реализация намеченных плановых заданий в значительной степени обуславливает создание форм развития</p></div>
-	</div>
-</div><div class="col-lg-4 gallery-item-col">
-	<div class="gallery-item" style="background-image:url(./assets/cache/images/events/6-480x460-f3a.jpg)">
-		<div class="gallery-item-title ani-text">Фестиваль шестой</div>
-		<div class="gallery-item-text ani-text"><p>Товарищи! дальнейшее развитие различных форм деятельности играет важную роль в формировании позиций, занимаемых участниками в отношении поставленных задач. Идейные соображения высшего порядка, а также реализация намеченных плановых заданий представляет собой интересный эксперимент</p></div>
-	</div>
-</div>	
-</div></div></div></section><section style='background-color: rgb(220 51 173 / 20%);'><div class="row"><div class="col-lg-3"></div><div class="col-lg-9"><h1 class="page-title-inner ani-header">Контакты</h1>			
-<div class="contact-content ani-text"><p>Начни свое путешествие в Северную Пальмиру нашей Родины.</p></div>
-<div class="feedback">
-	<form method="post" action="/form/" class="feedback__form js-form-submit">			
-		<input name="form" type="hidden" value="feedback">
-		<input type="hidden" name='page_id' value="8">
-		<input type="hidden" name='pagetitle' value="Контакты">
-		<input type="text" name='phone' class="dn form__protect"  value="">
-
-		<div class="form-row">
-			<input type="text" class="input input-name" name="name" placeholder="Ваше имя*" required>
-			<input type="tel" class="input input-phone phonemask" name="phone" placeholder="Ваш телефон*" required>								
-			<input type="email" class="input input-email" name="email" placeholder="Ваш email*" required>															
-		</div>
-		<textarea name="meassage" class="textarea" placeholder="Опишите Ваш запрос: *"></textarea>
-		<div class="form-agry">
-			<div class="personal">
-				Нажимая на конопку «отправить» <br> даю согласие на обработку <a href="/policy">персональных данных</a>
-			</div>								
-			<button type="submit" name="submit" class="form-submit">Отправить</button>
-		</div>								
-	</form>
-	<div class="form__success">Ваша заявка успешно отправлена.<br>Наши менеджеры свяжутся с Вами.</div>
-	<div class="form__error">Произошла ошибка</div>
+  <section style='background-color: rgb(85 85 148 / 20%);'>
+    <div class="container-fluid height-100">
+      <div class="row height-100">
+        <div class="col-lg-3 col-md-4 col-sm-0 col-xs-0"></div>
+        <div class="col-lg-9 col-md-8 col-sm-12 col-xs-12">
+          <h1 class="page-title-inner ani-header">Коктейльная карта</h1>		
+          <div class="owl-carousel slider-items">
+            <div class="slider-item" data-aos="flip-left">
+              <div class="slider-item-top">
+                <div class="slider-title">Олд-фэшн (Old Fasioned)</div>
+                <div class="slider-text scroll-text">Для напитков в чистом виде со льдом Lorem ipsum dolor sit amet consectetur adipisicing elit. At iste alias assumenda magnam, quos, laborum voluptatem labore impedit dolorum necessitatibus esse est, blanditiis architecto non deleniti hic. Cupiditate, ipsum itaque?</div>
+              </div>
+              <div class="slider-item-bottom">
+                <img src="./assets/images/coctails/01.png" alt="" class="slider-img">
+                <div class="slider-ml">220-300 мл</div>
+              </div>		
+            </div>
+            <div class="slider-item" data-aos="flip-left">
+              <div class="slider-item-top">
+                <div class="slider-title">Маргарита (Margarita Glass)</div>
+                <div class="slider-text scroll-text">Для напитков в чистом виде со льдом </div>
+              </div>
+              <div class="slider-item-bottom">
+                <img src="./assets/images/coctails/02.png" alt="" class="slider-img">
+                <div class="slider-ml">220-300 мл</div>
+              </div>		
+            </div>
+            <div class="slider-item" data-aos="flip-left">
+              <div class="slider-item-top">
+                <div class="slider-title">Хайболл (Highball или Long Drink)</div>
+                <div class="slider-text scroll-text">Для напитков в чистом виде со льдом </div>
+              </div>
+              <div class="slider-item-bottom">
+                <img src="./assets/images/coctails/03.png" alt="" class="slider-img">
+                <div class="slider-ml">220-300 мл</div>
+              </div>		
+            </div>
+            <div class="slider-item" data-aos="flip-left">
+              <div class="slider-item-top">
+                <div class="slider-title">Олд-фэшн (Old Fasioned)</div>
+                <div class="slider-text scroll-text">Для напитков в чистом виде со льдом  Cupiditate, ipsum itaque?</div>
+              </div>
+              <div class="slider-item-bottom">
+                <img src="./assets/images/coctails/01.png" alt="" class="slider-img">
+                <div class="slider-ml">220-300 мл</div>
+              </div>		
+            </div>
+            <div class="slider-item" data-aos="flip-left">
+              <div class="slider-item-top">
+                <div class="slider-title">Олд-фэшн (Old Fasioned)</div>
+                <div class="slider-text scroll-text">Для напитков в чистом виде со льдом Lorem ipsum dolor sit amet consectetur adipisicing elit. At iste alias assumenda magnam, quos, laborum voluptatem labore impedit dolorum necessitatibus esse est, blanditiis architecto non deleniti hic. Cupiditate, ipsum itaque?</div>
+              </div>
+              <div class="slider-item-bottom">
+                <img src="./assets/images/coctails/02.png" alt="" class="slider-img">
+                <div class="slider-ml">220-300 мл</div>
+              </div>		
+            </div>
+            <div class="slider-item" data-aos="flip-left">
+              <div class="slider-item-top">
+                <div class="slider-title">Олд-фэшн (Old Fasioned)</div>
+                <div class="slider-text scroll-text">Для напитков в чистом виде со льдом Lorem ipsum dolor sit amet consectetur adipisicing elit. At iste alias assumenda magnam, quos, laborum voluptatem labore impedit dolorum necessitatibus esse est, blanditiis architecto non deleniti hic. Cupiditate, ipsum itaque?</div>
+              </div>
+              <div class="slider-item-bottom">
+                <img src="./assets/images/coctails/03.png" alt="" class="slider-img">
+                <div class="slider-ml">220-300 мл</div>
+              </div>		
+            </div>						
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section style='background-color: rgb(89 146 173 / 20%);'>
+    <div class="container-fluid height-100">
+      <div class="row height-100">
+        <div class="col-lg-3 col-md-4 col-sm-0 col-xs-0"></div>
+        <div class="col-lg-9 col-md-8 col-sm-12 col-xs-12">
+          <h1 class="page-title-inner ani-header">Галерея мероприятий</h1>	
+          <div class="owl-carousel galery-collection">
+            <div class="gallery-item" style="background-image:url(./assets/cache/images/events/1-480x460-f3a.jpg)">
+              <div class="gallery-item-title ani-text">Фестиваль первый</div>
+              <div class="gallery-item-text scroll-text ani-text"><p>Повседневная практика показывает, что постоянное информационно-пропагандистское обеспечение нашей деятельности требуют определения и уточнения дальнейших направлений развития.</p></div>
+            </div>
+            <div class="gallery-item" style="background-image:url(./assets/cache/images/events/2-480x460-f3a.jpg)">
+              <div class="gallery-item-title ani-text">Фестиваль второй</div>
+              <div class="gallery-item-text scroll-text ani-text"><p>С другой стороны укрепление и развитие структуры играет важную роль в формировании новых предложений. Идейные соображения высшего порядка, а также реализация намеченных плановых заданий в значительной степени обуславливает создание форм развития</p></div>
+            </div>
+            <div class="gallery-item" style="background-image:url(./assets/cache/images/events/3-480x460-f3a.jpg)">
+              <div class="gallery-item-title ani-text">Фестиваль третий</div>
+              <div class="gallery-item-text scroll-text ani-text"><p>Товарищи! дальнейшее развитие различных форм деятельности играет важную роль в формировании позиций, занимаемых участниками в отношении поставленных задач. Идейные соображения высшего порядка, а также реализация намеченных плановых заданий представляет собой интересный эксперимент</p></div>
+            </div>
+            <div class="gallery-item" style="background-image:url(./assets/cache/images/events/4-480x460-f3a.jpg)">
+              <div class="gallery-item-title ani-text">Фестиваль четвертый</div>
+              <div class="gallery-item-text scroll-text ani-text"><p>Повседневная практика показывает, что постоянное информационно-пропагандистское обеспечение нашей деятельности требуют определения и уточнения дальнейших направлений развития.</p></div>
+            </div>
+            <div class="gallery-item" style="background-image:url(./assets/cache/images/events/5-480x460-f3a.jpg)">
+              <div class="gallery-item-title ani-text">Фестиваль пятый</div>
+              <div class="gallery-item-text scroll-text ani-text"><p>С другой стороны укрепление и развитие структуры играет важную роль в формировании новых предложений. Идейные соображения высшего порядка, а также реализация намеченных плановых заданий в значительной степени обуславливает создание форм развития</p></div>
+            </div>
+            <div class="gallery-item" style="background-image:url(./assets/cache/images/events/6-480x460-f3a.jpg)">
+              <div class="gallery-item-title ani-text">Фестиваль шестой</div>
+              <div class="gallery-item-text scroll-text ani-text"><p>Товарищи! дальнейшее развитие различных форм деятельности играет важную роль в формировании позиций, занимаемых участниками в отношении поставленных задач. Идейные соображения высшего порядка, а также реализация намеченных плановых заданий представляет собой интересный эксперимент</p></div>
+            </div> 
+          </div>	   	
+        </div>
+      </div>
+    </div>
+  </section>
+  <section style='background-color: rgb(220 51 173 / 20%);'>
+    <div class="container-fluid height-100">
+      <div class="row height-100">
+        <div class="col-lg-3 col-md-4 col-sm-0 col-xs-0"></div>
+        <div class="col-lg-9 col-md-8 col-sm-12 col-xs-12">
+          <h1 class="page-title-inner ani-header">Контакты</h1>			
+          <div class="contact-content ani-text"><p>Начни свое путешествие в Северную Пальмиру нашей Родины.</p></div>
+          <div class="feedback">
+            <form method="post" action="/form/" class="feedback__form js-form-submit">			
+              <input name="form" type="hidden" value="feedback">
+              <input type="hidden" name='page_id' value="8">
+              <input type="hidden" name='pagetitle' value="Контакты">
+              <input type="text" name='phone' class="dn form__protect"  value="">
+              <div class="form-row">
+                <input type="text" class="input input-name" name="name" placeholder="Ваше имя*" required>
+                <input type="tel" class="input input-phone phonemask" name="phone" placeholder="Ваш телефон*" required>								
+                <input type="email" class="input input-email" name="email" placeholder="Ваш email*" required>															
+              </div>
+              <textarea name="meassage" class="textarea" placeholder="Опишите Ваш запрос: *"></textarea>
+              <div class="form-agry">
+                <div class="personal">
+                  Нажимая на конопку «отправить» <br> даю согласие на обработку <a href="/policy">персональных данных</a>
+                </div>								
+                <button type="submit" name="submit" class="form-submit">Отправить</button>
+              </div>								
+            </form>
+            <div class="form__success">Ваша заявка успешно отправлена.<br>Наши менеджеры свяжутся с Вами.</div>
+            <div class="form__error">Произошла ошибка</div>
+          </div>
+          <div class="e-mail">
+            <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+<g>
+	<path d="M448,64H64C28.656,64,0,92.656,0,128v256c0,35.344,28.656,64,64,64h384c35.344,0,64-28.656,64-64V128
+		C512,92.656,483.344,64,448,64z M342.656,234.781l135.469-116.094c0.938,3,1.875,6,1.875,9.313v256
+		c0,2.219-0.844,4.188-1.281,6.281L342.656,234.781z M448,96c2.125,0,4,0.813,6,1.219L256,266.938L58,97.219
+		C60,96.813,61.875,96,64,96H448z M33.266,390.25C32.828,388.156,32,386.219,32,384V128c0-3.313,0.953-6.313,1.891-9.313
+		L169.313,234.75L33.266,390.25z M64,416c-3.234,0-6.172-0.938-9.125-1.844l138.75-158.563l51.969,44.531
+		C248.578,302.719,252.297,304,256,304s7.422-1.281,10.406-3.875l51.969-44.531l138.75,158.563C454.188,415.062,451.25,416,448,416
+		H64z"/>
+</g>
+            </svg>
+            <a href="mailto:welcome@nevavodka.com">welcome@nevavodka.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </div>
-<div class="e-mail">
-	<img src="./assets/images/email.svg" width="34" height="34" alt="">
-	<a href="mailto:welcome@nevavodka.com">welcome@nevavodka.com</a>
-</div></div></div></section>
-
-	</div>
 </main>
 <link rel="stylesheet"type="text/css"href="./template/js/fullPageScrollPureJS/full-page-scroll.css"/>
 <script src="./template/js/fullPageScrollPureJS/full-page-scroll.js"></script>
@@ -339,13 +366,6 @@
 
 
 <style>
-	#scrollMenu {
-	position: fixed;
-	left: 15px;
-	top: 50%;
-	transform: translate3d(0%, -50%, 0);
-	z-index: 3;
-	}
 	.page {
 	position: relative;
 	height: 100vh;
